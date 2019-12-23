@@ -1,6 +1,6 @@
 <?php
 $host='localhost';
-$db = 'cards.sql';
+$db = 'cards';
 require_once "db_upass.php";
 
 $user=$DB_USER;
@@ -8,7 +8,7 @@ $pass=$DB_PASS;
 
 
 if(gethostname()=='users.iee.ihu.gr') {
-	$mysqli = new mysqli($host, $user, $pass, $db,null,'/home/staff/asidirop/mysql/run/mysql.sock');
+	$mysqli = new mysqli($host, $user, $pass, $db);
 } else {
         $mysqli = new mysqli($host, $user, $pass, $db);
 }
