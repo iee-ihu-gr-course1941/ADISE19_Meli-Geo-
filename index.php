@@ -9,7 +9,7 @@
 </head>
 <body>
    <body class="game">
-   <h1 class="p1">Player 1</h1>
+   <h1 class="p1">Player1</h1>
    <h1 class="p2">Player 2</h1>
   
    <table class="uno_table">
