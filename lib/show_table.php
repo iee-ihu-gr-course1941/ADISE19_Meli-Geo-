@@ -1,11 +1,8 @@
-<php 
-show_table(){
-    header('Content-type: application/json');
-    print json_encode($result->fetch_all(MYSQLI_ASSOC));
+<?php
+require_once "dbconnect2.php";
+header('Content-type: application/json');
+function show_table(){
+    connect();
+   
 }
-
-
-
-
-
 ?>
