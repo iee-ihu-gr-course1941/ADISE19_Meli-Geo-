@@ -10,8 +10,12 @@ $pass=$DB_PASS;
 
 
 if(gethostname()=='users.iee.ihu.gr') {
-  $mysqli = new mysqli($host, $user, $pass, $db,null,'/home/student/it/2015/it154582/mysql/run/mysql.sock');
-  print "Succesful!";
+  $mysqli = new mysqli($host, $user, $pass, $db,null,'/home/student/it/2015/it154582/mysql/run/mysql.sock'); 
+        $stmt = $mysqli->prepare('SELECT * FROM `cards`');
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $r = $result->fetch_all(MYSQLI_ASSOC);
+        print json_encode($r); 
   
 } else {
         $mysqli = new mysqli($host, $user, $pass, $db); 
