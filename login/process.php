@@ -3,7 +3,7 @@
 
 
 		//get value pass from form in login.php file
-		$username = $_POST ['user'];
+		$username = $_POST ['username'];
 		$password = $_POST ['pass'];
 
 		//to prevent mysql injection
