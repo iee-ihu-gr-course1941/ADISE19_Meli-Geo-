@@ -3,15 +3,13 @@ body {
 	padding: 0;
 	width: 100%;
 }
-.p1 {
+.you {
 	position: absolute;
-	left: 50%;
-	top: 5%;
+	bottom: 10%;
 }
-.p2 {
+.opponent {
 	position: absolute;
-	left: 50%;
-	bottom: 5%;
+	top: 10%;
 }
 .uno_table {
 	position: absolute;
