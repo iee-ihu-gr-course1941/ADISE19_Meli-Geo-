@@ -1,0 +1,10 @@
+You can only play a card which has the same color or number or symbol with the card in the center. 
+Wild cards (labelled W) are cards that can alter the color during the play.
+Draw Two cards (labelled +2) force the opposing side to draw two cards and forfeit his/her turn. 
+Wild Draw Four cards (labelled +4) are basically a wild card and two Draw Two cards. 
+The opposing side is forced to draw four cards and forfeit his/her turn. 
+The user can alter the color during the play in addition. However, you can only play a Wild Draw Four card if you don't have a card that matches the color of the card in the center. 
+Reverse and Skip cards have the same effect in which you can play another card because your opponent's side is reversed or skipped.
+
+
+Rules extracted from unorules.com
