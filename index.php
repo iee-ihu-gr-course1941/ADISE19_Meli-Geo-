@@ -20,7 +20,7 @@ if($p=='do_login'){
 <script src="js/uno.js"></script>
   <title>Uno Game</title>
 </head>
-   <body class="game" onload="draw_empty_table()">
+   <body class="game">
    <div class="container">
     <div class="row justify-content-md-center">
    <div class="md-auto opponent">
@@ -29,8 +29,11 @@ if($p=='do_login'){
    <div class="md-auto">
      <div id="table" style="border:none"></div>
    </div> 
-   <div class="md-auto you">
+   <div class="you">
       <h1><?php echo($_SESSION['user']) ?></h1>
+    </div>
+    <div class="controls">
+      <button onclick='fill_table()' class="btn btn-primary">Create Table</button>
     </div>
    </div>
    </div>   

@@ -1,7 +1,7 @@
 <?php
 require_once "db_upass.php";
 $host='localhost';
-$db = 'cards';
+$db = 'uno';
 $user=$DB_USER;
 $pass=$DB_PASS;
 global $mysqli;
