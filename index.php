@@ -1,10 +1,13 @@
 <?php
   session_start();
+  if(!isset($_REQUEST['p'])){
+    $_REQUEST['p'] = '';
+  }
   $p = $_REQUEST['p'];
 if($p=='do_login'){
   require "login/do_login.php";
-}
-   if ( !isset( $_SESSION['user'] ) ) {
+} 
+ if ( !isset( $_SESSION['user'] ) ) {
       
       // Redirect them to the login page
       header("Location: login/login.php");
@@ -30,10 +33,12 @@ if($p=='do_login'){
      <div id="table" style="border:none"></div>
    </div> 
    <div class="you">
-      <h1><?php echo($_SESSION['user']) ?></h1>
+      <h1 class="player1"><?php echo($_SESSION['user']) ?></h1>
     </div>
     <div class="controls">
-      <button onclick='fill_table()' class="btn btn-primary">Create Table</button>
+    <form action="index.php" method="post" name="fill_form"></form>
+      <input type="submit" id="fill_button" onclick='fill_table()' class="btn btn-primary">Create Table</input>
+      <input name="p" value="insert_owners" type="hidden">
     </div>
    </div>
    </div>   
