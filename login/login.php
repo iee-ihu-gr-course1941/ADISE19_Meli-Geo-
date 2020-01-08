@@ -9,10 +9,10 @@
 <body>
 
 	<div id="frm">
-		<form action="./../index.php" method="POST">
+		<form action="./../index.php" method="GET">
 			<p>
 				<h1>Enter your nickname:</h1>
-				<input type="text" name="username" required>
+				<input type="text" name="nickname" required>
 			</p>
 			<p>
 				<input type="submit" id="btn" name="Login"/>

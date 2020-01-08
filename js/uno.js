@@ -1,5 +1,6 @@
 function fill_table() {
 	$.ajax("lib/show_table.php", {
+		async: false,
 		success: function show_table_json(x) {
 			$("#table").html(
 				"<ul class='md-auto' style='list-style-type: none;' id='cards'></ul>"
