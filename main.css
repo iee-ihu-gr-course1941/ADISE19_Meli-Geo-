@@ -11,14 +11,19 @@ body {
 	position: absolute;
 	top: 10%;
 }
-.uno_table {
+.opp_cards {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 20%;
 }
 #table {
 	position: absolute;
-	bottom: 0;
+	left: 40%;
+	bottom: 20%;
+}
+.playing_card {
+	position: absolute;
+	left: 43%;
+	top: 50%;
 }
 .controls {
 	position: absolute;

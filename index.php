@@ -13,6 +13,8 @@ require "login/do_login.php";
       header("Location: login/login.php");
    }
     echo $_SESSION['user'];
+
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +23,10 @@ require "login/do_login.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script
+			  src="https://code.jquery.com/jquery-3.4.1.js"
+			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			  crossorigin="anonymous"></script>
 <script src="js/uno.js"></script>
   <title>Uno Game</title>
 </head>
@@ -28,11 +34,15 @@ require "login/do_login.php";
    <div class="container">
     <div class="row justify-content-md-center">
    <div class="md-auto opponent">
-    <h1>Waiting for opponent...</h1>
+    <h1 id="opponent">Waiting for opponent...</h1>
    </div>
-   <div class="md-auto">
-     <div id="table" style="border:none"></div>
-   </div> 
+   <div class="md-auto opp_cards">
+   <h3 >Opponent's cards : <span id="opp_cards"></span></h3>
+   </div>
+   <div class="md-auto playing_card">
+     <h3>Playing card: <span id="playing_card"></span></h3>
+   </div>
+     <ul id="table"></ul>
    <div class="you">
       <h1 class="player1"><?php echo($_SESSION['nickname']) ?></h1>
     </div>
@@ -43,11 +53,13 @@ require "login/do_login.php";
     </div>
    </div>
    </div>   
-  
-   <script
-			  src="https://code.jquery.com/jquery-3.4.1.js"
-			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-			  crossorigin="anonymous"></script>
+  <?php
+   if($_SESSION['user']=="player2"){
+    echo '<script type="text/javascript">',
+     'fill_table();',
+     '</script>'
+;
+  }?>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
