@@ -1,35 +1,43 @@
 function fill_table() {
-	$.ajax("lib/create_table.php", {
+	$.ajax({
+		url: "uno.php/board",
+		method: "POST",
 		success: function show_table_json(x) {
 			document.getElementById("table").innerHTML = "";
-			// $("#table").html("<ul style='list-style-type: none;' id='cards'></ul>");
 			for (var i = 0; i < 7; i++) {
 				var color = x[i].color;
 				switch (color) {
+					case "no_color":
+						var t =
+							"<li class='d-inline h3 text-dark pr-2 border border-dark'>" +
+							x[i].card_name +
+							"</li>";
+						$("#table").append(t);
+						break;
 					case "green":
 						var t =
-							"<li class='d-inline text-success pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-success pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);
 						break;
 					case "blue":
 						var t =
-							"<li class='d-inline text-primary pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-primary pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);
 						break;
 					case "red":
 						var t =
-							"<li class='d-inline text-danger pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-danger pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);
 						break;
 					case "yellow":
 						var t =
-							"<li class='d-inline text-warning pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-warning pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);
@@ -45,10 +53,26 @@ function fill_table() {
 	});
 }
 
+$(document).on("click", "#do_move", function() {
+	var card = $("#move").val();
+	var a = card.trim();
+
+	$.ajax({
+		url: "uno.php/board/card/" + a,
+		method: "PUT",
+		dataType: "json",
+		contentType: "application/json",
+		success: do_move
+	});
+});
+
+function do_move() {}
+
 $(document).ready(function() {
 	show_opponent();
 	show_number_of_cards();
 	show_playing_card();
+	show_remaining_deck();
 	show_cards_timer();
 });
 
@@ -69,15 +93,15 @@ function show_number_of_cards() {
 		$("#opp_cards")
 			.load("lib/show_number_of_cards.php")
 			.fadeIn("slow");
-	}, 3000);
+	}, 2000);
 }
 
-function show_number_of_cards() {
+function show_remaining_deck() {
 	setInterval(function() {
-		$("#opp_cards")
-			.load("lib/show_number_of_cards.php")
+		$("#remaining_deck")
+			.load("lib/show_remaining_deck.php")
 			.fadeIn("slow");
-	}, 3000);
+	}, 2000);
 }
 
 function show_playing_card() {
@@ -85,15 +109,13 @@ function show_playing_card() {
 		$("#playing_card")
 			.load("lib/show_playing_card.php")
 			.fadeIn("slow");
-	}, 3000);
+	}, 2000);
 }
 
 function show_cards_timer() {
 	setInterval(function() {
-		if (!$("#table")) {
-			show_cards();
-		}
-	}, 2000);
+		show_cards();
+	}, 3000);
 }
 
 function show_cards() {
@@ -104,30 +126,37 @@ function show_cards() {
 			for (var i = 0; i < 7; i++) {
 				var color = x[i].color;
 				switch (color) {
+					case "no_color":
+						var t =
+							"<li class='d-inline h3 text-dark pr-2 border border-dark'>" +
+							x[i].card_name +
+							"</li>";
+						$("#table").append(t);
+						break;
 					case "green":
 						var t =
-							"<li class='d-inline text-success pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-success pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);
 						break;
 					case "blue":
 						var t =
-							"<li class='d-inline text-primary pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-primary pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);
 						break;
 					case "red":
 						var t =
-							"<li class='d-inline text-danger pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-danger pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);
 						break;
 					case "yellow":
 						var t =
-							"<li class='d-inline text-warning pr-2 border border-dark'>" +
+							"<li class='d-inline h3 text-warning pr-2 border border-dark'>" +
 							x[i].card_name +
 							"</li>";
 						$("#table").append(t);

@@ -2,6 +2,7 @@
 session_start();
 require_once "dbconnect2.php";
 header('Content-type: application/json');
+//dialegoyme tis kartes poy antistixoun ston paixti (session user) gia na tis deiksoume
 $stmt2 = $mysqli->prepare("SELECT card_name,color from `cards` WHERE `owner`='{$_SESSION['user']}'" );
 $stmt2->execute();
 $result = $stmt2->get_result();

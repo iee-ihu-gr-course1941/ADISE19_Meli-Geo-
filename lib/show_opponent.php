@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'dbconnect2.php';
+//an eisai o player1 tote deikse san antipalo to onoma tou player2
 if($_SESSION['user']=="player1"){
     $stmt1 = $mysqli->prepare("SELECT nickname FROM `players` where player='player2'");
     $stmt1->execute();

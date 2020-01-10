@@ -13,7 +13,6 @@ require "login/do_login.php";
       header("Location: login/login.php");
    }
     echo $_SESSION['user'];
-
   
 ?>
 <!DOCTYPE html>
@@ -39,6 +38,15 @@ require "login/do_login.php";
    <div class="md-auto opp_cards">
    <h3 >Opponent's cards : <span id="opp_cards"></span></h3>
    </div>
+    <div class="md-auto remaining_deck">
+     <h3>Remaining deck: <span id="remaining_deck"></span></h3>
+   </div>
+   <div class="md-auto moves">
+   <h3>Πέτα μία κάρτα (π.χ G0) : </h3>
+   <input id="move"/>
+   <button id="do_move" class="btn btn-primary mt-1 d-block">ΠΕΤΑ ΤΗΝ ΚΑΡΤΑ</button>
+   <button id="paso" class="btn btn-danger mt-1">ΠΑΣΟ</button>
+   </div>
    <div class="md-auto playing_card">
      <h3>Playing card: <span id="playing_card"></span></h3>
    </div>
@@ -47,13 +55,15 @@ require "login/do_login.php";
       <h1 class="player1"><?php echo($_SESSION['nickname']) ?></h1>
     </div>
     <div class="controls"><?php
+    //emfanisi button mono gia player1
     if($_SESSION['user']=="player1"){
-     echo "<button onclick='fill_table()' class='btn btn-primary'>Create Table</button>";
+     echo "<button onclick='fill_table()' class='btn btn-primary'>ΕΝΑΡΞΗ/RESET</button>";
     }?>
     </div>
    </div>
    </div>   
   <?php
+  //se periptwsh pou o player1 dhmioyrgisei to table meta th sundesh tou player2
    if($_SESSION['user']=="player2"){
     echo '<script type="text/javascript">',
      'fill_table();',

@@ -11,7 +11,7 @@
 	<div id="frm">
 		<form action="./../index.php" method="GET">
 			<p>
-				<h1>Enter your nickname:</h1>
+				<h1 class="text">Enter your nickname:</h1>
 				<input type="text" name="nickname" required>
 			</p>
 			<p>

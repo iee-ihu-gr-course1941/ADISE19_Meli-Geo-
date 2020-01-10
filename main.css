@@ -17,13 +17,23 @@ body {
 }
 #table {
 	position: absolute;
-	left: 40%;
+	left: 35%;
 	bottom: 20%;
 }
 .playing_card {
 	position: absolute;
 	left: 43%;
 	top: 50%;
+}
+.remaining_deck {
+	position: absolute;
+	top: 30%;
+	left: 10%;
+}
+.moves {
+	position: absolute;
+	top: 40%;
+	left: 10%;
 }
 .controls {
 	position: absolute;
