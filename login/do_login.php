@@ -23,6 +23,9 @@ require "lib/dbconnect2.php";
 		$stmt1 = $mysqli->prepare("UPDATE `cards` SET `owner`=null");
 		$stmt1->execute();
 
+		$stmt1 = $mysqli->prepare("UPDATE `game` SET `game_status`=null,`has_turn`=null");
+		$stmt1->execute();
+
 		$stmt = $mysqli->prepare("INSERT INTO `players` (`player`,`nickname`,`hasTurn`) VALUES ('{$_SESSION['user']}','{$_SESSION['nickname']}',default)");
 		$stmt->execute();
 		 header("Location: index.php");
@@ -48,9 +51,17 @@ require "lib/dbconnect2.php";
 
 		$stmt2 = $mysqli->prepare("UPDATE `cards` SET `owner`=null");
 		$stmt2->execute();
+
+		$stmt3 = $mysqli->prepare("UPDATE `game` SET `game_status`=null,`has_turn`=null");
+		$stmt3->execute();
+
 		$_SESSION['user'] = "player1";
 		}
 
+        if ($_SESSION['user']=="player2"){
+		$stmt4 = $mysqli->prepare("UPDATE `game` SET `game_status`='initialized',`has_turn`=null");
+		$stmt4->execute();
+		}
 		$stmt = $mysqli->prepare("INSERT INTO `players` (`player`,`nickname`,`hasTurn`) VALUES ('{$_SESSION['user']}','{$_SESSION['nickname']}',default)");
 		$stmt->execute();
 		 header("Location: index.php");

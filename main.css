@@ -1,42 +1,37 @@
-body {
-	margin: 0;
-	padding: 0;
-	width: 100%;
+.opponent {
+	position: absolute;
+	top: 5%;
+}
+.opp_cards {
+	position: absolute;
+	top: 15%;
+}
+.playing_card {
+	position: absolute;
+	top: 40%;
+}
+#table {
+	position: absolute;
+	bottom: 20%;
 }
 .you {
 	position: absolute;
 	bottom: 10%;
 }
-.opponent {
-	position: absolute;
-	top: 10%;
-}
-.opp_cards {
+.remaining_deck {
 	position: absolute;
 	top: 20%;
 }
-#table {
-	position: absolute;
-	left: 35%;
-	bottom: 20%;
-}
-.playing_card {
-	position: absolute;
-	left: 43%;
-	top: 50%;
-}
-.remaining_deck {
-	position: absolute;
-	top: 30%;
-	left: 10%;
-}
-.moves {
-	position: absolute;
-	top: 40%;
-	left: 10%;
-}
 .controls {
 	position: absolute;
-	left: 5%;
-	bottom: 5%;
+	bottom: 10%;
+}
+.turn {
+	position: absolute;
+	top: 30%;
+}
+.col-sm.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

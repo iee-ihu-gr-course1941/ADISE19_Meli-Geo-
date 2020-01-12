@@ -8,6 +8,7 @@ if($_SESSION['user']=="player1"){
     $result = $stmt1->get_result();
     $row = mysqli_fetch_array($result);
     if(mysqli_num_rows($result)>0){
+    $_SESSION['oppnickname'] = $row['nickname'];
     echo $row['nickname'];
     }else{
         echo "Waiting for opponent...";
@@ -18,6 +19,7 @@ if($_SESSION['user']=="player1"){
     $result = $stmt2->get_result();
     $row = mysqli_fetch_array($result);
     if(mysqli_num_rows($result)>0){
+    $_SESSION['oppnickname'] = $row['nickname'];
     echo $row['nickname'];
 } else{
     echo "Waiting for opponent...";

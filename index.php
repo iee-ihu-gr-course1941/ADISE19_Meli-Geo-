@@ -1,19 +1,19 @@
 <?php
-  session_start();
-  if(!isset($_REQUEST['p'])){
+session_start();
+if (!isset($_REQUEST['p'])) {
     $_REQUEST['p'] = '';
-  }
-if($_REQUEST['p']=='do_login'){
-$_REQUEST['p'] = '';
-require "login/do_login.php";
-} 
- if ( !isset( $_SESSION['user'] ) ) {
-      
-      // Redirect them to the login page
-      header("Location: login/login.php");
-   }
-    echo $_SESSION['user'];
-  
+}
+if ($_REQUEST['p'] == 'do_login') {
+    $_REQUEST['p'] = '';
+    require "login/do_login.php";
+}
+if (!isset($_SESSION['user'])) {
+
+    // Redirect them to the login page
+    header("Location: login/login.php");
+}
+echo $_SESSION['user'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,47 +30,42 @@ require "login/do_login.php";
   <title>Uno Game</title>
 </head>
    <body class="game">
-   <div class="container">
-    <div class="row justify-content-md-center">
-   <div class="md-auto opponent">
-    <h1 id="opponent">Waiting for opponent...</h1>
+     <div class="container-fluid h-100">
+    <div class="row text-center h-100">
+    <div class="col-sm center h-100">
+      <div class="remaining_deck">
+     <h3>Κάρτες που απομένουν: <span id="remaining_deck"></span></h3>
    </div>
-   <div class="md-auto opp_cards">
-   <h3 >Opponent's cards : <span id="opp_cards"></span></h3>
-   </div>
-    <div class="md-auto remaining_deck">
-     <h3>Remaining deck: <span id="remaining_deck"></span></h3>
-   </div>
-   <div class="md-auto moves">
-   <h3>Πέτα μία κάρτα (π.χ G0) : </h3>
-   <input id="move"/>
-   <button id="do_move" class="btn btn-primary mt-1 d-block">ΠΕΤΑ ΤΗΝ ΚΑΡΤΑ</button>
-   <button id="paso" class="btn btn-danger mt-1">ΠΑΣΟ</button>
-   </div>
-   <div class="md-auto playing_card">
-     <h3>Playing card: <span id="playing_card"></span></h3>
-   </div>
-     <ul id="table"></ul>
-   <div class="you">
-      <h1 class="player1"><?php echo($_SESSION['nickname']) ?></h1>
+   <div class="turn"></div>
+   <div class="text-center moves" id="moves"></div>
+    <div class="controls">
+    <?php
+//emfanisi button mono gia player1
+if ($_SESSION['user'] == "player1") {
+    echo "<button onclick='fill_table()' id='start' class='btn btn-primary'>ΕΝΑΡΞΗ/RESET</button>";
+}?>
     </div>
-    <div class="controls"><?php
-    //emfanisi button mono gia player1
-    if($_SESSION['user']=="player1"){
-     echo "<button onclick='fill_table()' class='btn btn-primary'>ΕΝΑΡΞΗ/RESET</button>";
-    }?>
     </div>
+    <div class="col-sm center h-100">
+        <div class="opponent">
+           <h1 id="opponent">Waiting for opponent...</h1>
+        </div>
+        <div class="opp_cards">
+           <h3 >Κάρτες αντιπάλου: <span id="opp_cards"></span></h3>
+        </div>
+         <div class="playing_card">
+           <h3>Παιζόμενη κάρτα: <span id="playing_card"></span></h3>
+         </div>
+         <ul class="m-auto" id="table"></ul>
+         <div class="you">
+           <h1 class="player1"><?php echo ($_SESSION['nickname']) ?></h1>
+         </div>
+    </div>
+    <div class="col-sm">
+    </div>
+</div>
    </div>
-   </div>   
-  <?php
-  //se periptwsh pou o player1 dhmioyrgisei to table meta th sundesh tou player2
-   if($_SESSION['user']=="player2"){
-    echo '<script type="text/javascript">',
-     'fill_table();',
-     '</script>'
-;
-  }?>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </body>
