@@ -11,6 +11,7 @@ require_once "lib/show_card_info.php";
 require_once "lib/show_player_info.php";
 require_once "lib/show_players.php";
 require_once "lib/show_game.php";
+require_once "lib/do_uno.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
 $request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
@@ -31,6 +32,8 @@ switch ($r=array_shift($request)) {
                                 case 'paso': handle_paso();
                                         break;
                                 case 'draw': handle_draw();
+                                        break;
+                                case 'uno': handle_uno();
                                         break;
                                 case 'game': handle_game();
                                 default: header("HTTP/1.1 404 Not Found");
@@ -73,6 +76,10 @@ function handle_player($player) {
 
 function handle_players() {
    show_players();
+}
+
+function handle_uno(){
+        do_uno();
 }
 
 function handle_game(){

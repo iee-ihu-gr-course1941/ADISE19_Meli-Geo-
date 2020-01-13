@@ -82,6 +82,17 @@ $(document).on("click", "#do_move", function() {
 	$("#moves").empty();
 });
 
+$(document).on("click", "#uno", function() {
+	$.ajax({
+		url: "uno.php/board/uno",
+		method: "PUT",
+		dataType: "json",
+		error: function(x) {
+			alert(x.responseJSON["error"]);
+		}
+	});
+});
+
 $(document).on("click", "#paso", function() {
 	$.ajax({
 		url: "uno.php/board/paso",

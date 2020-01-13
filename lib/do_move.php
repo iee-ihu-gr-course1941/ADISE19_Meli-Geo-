@@ -33,15 +33,30 @@ function do_move($card)
 
 
 function success($mysqli,$user){
+    if(!isset($_SESSION['uno'])){
+        $_SESSION['uno']='false';
+    }
+
     $stmt = $mysqli->prepare("SELECT COUNT(*) FROM `cards` WHERE `owner`='$user'");
     $stmt->execute();
     $result = $stmt->get_result();
     $row_kartes = mysqli_fetch_array($result);
 
-    if($row_kartes[0]==0){
-    print json_encode("win");
+    if($row_kartes[0]>1){
+        $_SESSION['uno']="false";
+    }
+
+    if($row_kartes[0]==0 && $_SESSION['uno']=='true'){
+      print json_encode("win");
     $stmt1 = $mysqli->prepare("UPDATE `game` SET `game_status`='initialized'");
     $stmt1->execute();
+    }else if($row_kartes[0]==0 && $_SESSION['uno']=='false'){
+        $stmt = $mysqli->prepare("UPDATE `cards` SET `owner`='$user' WHERE `owner` IS NULL ORDER BY RAND() LIMIT 2");
+        $stmt->execute();
+
+         header("HTTP/1.1 500 Internal Server Error");
+         header('Content-type: application/json');
+         print json_encode(['error'=>'Που το έχεις το μυαλό σου;Ξέχασες να πεις Uno!Πάρε 2 κάρτες!']);
     }
 
 }

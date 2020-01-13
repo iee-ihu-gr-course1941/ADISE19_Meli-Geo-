@@ -19,6 +19,15 @@ $user = $_SESSION['user'];
 $stmt = $mysqli->prepare("UPDATE `cards` SET `owner`='{$user}' WHERE `owner` IS NULL ORDER BY RAND() LIMIT 1");
 $stmt->execute();
 $_SESSION['drawn']="true";
+
+$stmt = $mysqli->prepare("SELECT COUNT(*) FROM `cards` WHERE `owner`='$user'");
+$stmt->execute();
+$result = $stmt->get_result();
+$row_kartes = mysqli_fetch_array($result);
+
+if($row_kartes[0]>1){
+    $_SESSION['uno']="false";
+}
 print json_encode('drawn');
 }else{
   header("HTTP/1.1 500 Internal Server Error");

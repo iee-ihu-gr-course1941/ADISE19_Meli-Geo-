@@ -48,7 +48,7 @@ if ($_SESSION['user'] == "player1") {
     </div>
     <div class="col-sm center h-100">
         <div class="opponent">
-           <h1 id="opponent">Waiting for opponent...</h1>
+           <h1 id="opponent">Waiting for opponent...</h1><h3 class="text-danger" id="uno"></h3>
         </div>
         <div class="opp_cards">
            <h3 >Κάρτες αντιπάλου: <span id="opp_cards"></span></h3>
@@ -58,7 +58,7 @@ if ($_SESSION['user'] == "player1") {
          </div>
          <ul class="m-auto" id="table"></ul>
          <div class="you">
-           <h1 class="player1"><?php echo ($_SESSION['nickname']) ?></h1>
+           <h1 class="player1"><?php echo ($_SESSION['nickname']) ?></h1><h3 class="text-danger" id="uno"></h3>
          </div>
     </div>
     <div class="col-sm">

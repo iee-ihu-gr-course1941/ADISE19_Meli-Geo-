@@ -26,6 +26,8 @@ $stmt3->execute();
 
 $nickname = $_SESSION['nickname'];
 
+$_SESSION['uno']='false';
+
 $stmt4 = $mysqli->prepare("UPDATE `game` SET `game_status` ='started',`has_turn`='{$nickname}'");
 $stmt4->execute();
 
