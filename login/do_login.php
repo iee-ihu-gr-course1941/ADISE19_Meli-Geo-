@@ -26,7 +26,7 @@ require "lib/dbconnect2.php";
 		$stmt1 = $mysqli->prepare("UPDATE `game` SET `game_status`=null,`has_turn`=null");
 		$stmt1->execute();
 
-		$stmt = $mysqli->prepare("INSERT INTO `players` (`player`,`nickname`,`hasTurn`) VALUES ('{$_SESSION['user']}','{$_SESSION['nickname']}',default)");
+		$stmt = $mysqli->prepare("INSERT INTO `players` (`player`,`nickname`) VALUES ('{$_SESSION['user']}','{$_SESSION['nickname']}')");
 		$stmt->execute();
 		 header("Location: index.php");
 		//alliws syndesou san player2
@@ -62,7 +62,7 @@ require "lib/dbconnect2.php";
 		$stmt4 = $mysqli->prepare("UPDATE `game` SET `game_status`='initialized',`has_turn`=null");
 		$stmt4->execute();
 		}
-		$stmt = $mysqli->prepare("INSERT INTO `players` (`player`,`nickname`,`hasTurn`) VALUES ('{$_SESSION['user']}','{$_SESSION['nickname']}',default)");
+		$stmt = $mysqli->prepare("INSERT INTO `players` (`player`,`nickname`) VALUES ('{$_SESSION['user']}','{$_SESSION['nickname']}')");
 		$stmt->execute();
 		 header("Location: index.php");
 		}

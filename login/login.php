@@ -3,21 +3,19 @@
 <html>
 <head>
 	<title> Login Page </title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href = "style.css">
 </head>
 
 <body>
 
-	<div id="frm">
+	<div class="text-center" id="frm">
 		<form action="./../index.php" method="GET">
-			<p>
-				<h1 class="text">Enter your nickname:</h1>
-				<input type="text" name="nickname" required>
-			</p>
-			<p>
-				<input type="submit" id="btn" name="Login"/>
-				<input name="p" value="do_login" type="hidden">
-			</p>
+				<h1 class="text-center pb-1 underline display-4"><u>Uno Game</u></h1>
+				<p class="lead">by Anastasia Georgiadou & Alexandros Melissas</p>
+				<input class="form-control text-center" type="text" name="nickname" placeholder="Enter your nickname" required>
+			
+				<button type="submit" class="btn btn-primary mt-3" name="p" value="do_login">Είσοδος στο παιχνίδι!</button>
 		</form>
 	</div>
 </body>

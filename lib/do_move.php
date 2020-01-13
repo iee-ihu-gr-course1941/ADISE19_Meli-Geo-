@@ -36,17 +36,19 @@ function success($mysqli,$user){
     $stmt = $mysqli->prepare("SELECT COUNT(*) FROM `cards` WHERE `owner`='$user'");
     $stmt->execute();
     $result = $stmt->get_result();
-    $row = mysqli_fetch_array($result);
+    $row_kartes = mysqli_fetch_array($result);
 
-    if($row[0]==0){
+    if($row_kartes[0]==0){
     print json_encode("win");
     $stmt1 = $mysqli->prepare("UPDATE `game` SET `game_status`='initialized'");
     $stmt1->execute();
     }
 
 }
-function failed(){
-    print json_encode("failed");
+function failed($message){
+     header("HTTP/1.1 500 Internal Server Error");
+     header('Content-type: application/json');
+     print json_encode(['error'=>$message]);
 }
 
 function draw_two($mysqli,$card,$user,$oppnickname){
@@ -66,6 +68,7 @@ function draw_two($mysqli,$card,$user,$oppnickname){
     }
     $stmt3 = $mysqli->prepare("UPDATE `game` SET `has_turn`='{$oppnickname}'");
     $stmt3->execute();
+    $_SESSION["drawn"]="false";
    success($mysqli,$user);
 }
 
@@ -111,7 +114,7 @@ function draw_four($result3,$mysqli,$user,$oppnickname,$card_name,$color){
         $_SESSION["drawn"]="false";  
         success($mysqli,$user);
     }else{
-        failed();
+        failed("Δεν έχετε την κάρτα W+4!");
     }}
 function wild($result2,$mysqli,$user,$oppnickname,$card_name,$color){
     if(mysqli_num_rows($result2)>0){
@@ -125,7 +128,7 @@ function wild($result2,$mysqli,$user,$oppnickname,$card_name,$color){
         $_SESSION["drawn"]="false";
         success($mysqli,$user); 
     }else{
-        failed();
+        failed("Δεν έχετε την κάρτα W!");
     }
 
 }
@@ -167,7 +170,7 @@ if ($player_card_color == $playing_card_color || $player_card_value == $playing_
         case "YW":
             wild($result2,$mysqli,$user,$oppnickname,"YW","yellow");
         break;
-        default: failed();
+        default: failed("Μη συμβατή κίνηση!Δείτε τις διαθέσιμες κινήσεις στους κανόνες!");
    }}
        
 }

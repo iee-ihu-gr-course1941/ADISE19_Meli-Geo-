@@ -3,6 +3,13 @@ session_start();
 require_once "dbconnect2.php";
 $nickname = $_SESSION['nickname'];
 
+$stmt1 = $mysqli->prepare("SELECT `game_status` FROM `game`");
+$stmt1->execute();
+$result = $stmt1->get_result();
+$row = mysqli_fetch_array($result);
+$game_status = $row[0];
+
+if($game_status=="started"){
 $stmt = $mysqli->prepare("SELECT has_turn FROM `game`");
 $stmt->execute();
 $result = $stmt->get_result();
@@ -17,4 +24,4 @@ if ($nickname == $has_turn) {
    <button id="paso" class="btn btn-danger mt-1 d-inline-block">ΠΑΣΟ</button>
    <button id="uno" class="btn btn-success mt-1 d-inline-block">UNO</button>'
     ;
-}
+}}

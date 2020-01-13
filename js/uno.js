@@ -69,10 +69,11 @@ $(document).on("click", "#do_move", function() {
 		url: "uno.php/board/card/" + a,
 		method: "PUT",
 		dataType: "json",
+		error: function(x) {
+			alert(x.responseJSON["error"]);
+		},
 		success: function(x) {
-			if (x == "failed") {
-				alert("Λάθος κίνηση!");
-			} else if (x == "win") {
+			if (x == "win") {
 				alert("Νικήσατε!");
 				fill_table();
 			}
@@ -84,7 +85,11 @@ $(document).on("click", "#do_move", function() {
 $(document).on("click", "#paso", function() {
 	$.ajax({
 		url: "uno.php/board/paso",
-		method: "PUT"
+		method: "PUT",
+		dataType: "json",
+		error: function(x) {
+			alert(x.responseJSON["error"]);
+		}
 	});
 	$("#moves").empty();
 });
@@ -94,10 +99,8 @@ $(document).on("click", "#draw", function() {
 		url: "uno.php/board/draw",
 		method: "PUT",
 		dataType: "json",
-		success: function(x) {
-			if (x != "drawn") {
-				alert(x);
-			}
+		error: function(x) {
+			alert(x.responseJSON["error"]);
 		}
 	});
 });
