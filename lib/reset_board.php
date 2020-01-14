@@ -31,11 +31,11 @@ $_SESSION['uno']='false';
 $stmt4 = $mysqli->prepare("UPDATE `game` SET `game_status` ='started',`has_turn`='{$nickname}'");
 $stmt4->execute();
 
-// $user = $_SESSION['user'];
-// $stmt5 = $mysqli->prepare("SELECT card_name,color from `cards` WHERE `owner`='{$_SESSION['user']}'" );
-// $stmt5->execute();
-// $result = $stmt4->get_result();
-// print json_encode($result->fetch_all(MYSQLI_ASSOC),JSON_PRETTY_PRINT);
+$user = $_SESSION['user'];
+$stmt5 = $mysqli->prepare("SELECT card_name,color from `cards` WHERE `owner`='{$_SESSION['user']}'" );
+$stmt5->execute();
+$result = $stmt4->get_result();
+print json_encode($result->fetch_all(MYSQLI_ASSOC),JSON_PRETTY_PRINT);
 }
 else{
     print json_encode("failed");

@@ -61,18 +61,127 @@ if ($_SESSION['user'] == "player1") {
            <h1 class="player1"><?php echo ($_SESSION['nickname']) ?></h1><h3 class="text-danger" id="uno"></h3>
          </div>
     </div>
-    <div class="col-sm">
-		<h1> Οδηγίες παιχνιδιού: </h1>
-			<p>Σκοπός του παιχνιδιού για κάθε παίχτη είναι να ξεφορτωθεί όλες τις κάρτες που έχει στα χέρια του. Ο πρώτος που θα τα καταφέρει ανακηρύσσεται νικητής για το γύρο αυτό. </p>
-			<p>Ο πρώτος στη σειρά παίχτης πρέπει να ρίξει μια κάρτα ίδιου αριθμού ή χρώματος με την κάρτα αυτή ή να πετάξει μια ειδική κάρτα. Σε περίπτωση που δεν έχει καμία κάρτα να ταιριάξει με την πάνω κάρτα του σωρού, πρέπει να τραβήξει μια κάρτα από τη στοίβα και αν ούτε τότε δεν έχει να παίξει, πηγαίνει πάσο και έρχεται η σειρά του επόμενου παίχτη να παίξει, ακολουθώντας πάντα το ίδιο μοτίβο επιτρεπτών επιλογών [χρώμα ή αριθμός – ειδική κάρτα – κάρτα από τη στοίβα – πάσο]. </p>
-			<p>Όταν κάποιος παίχτης μείνει με μία κάρτα πρέπει να πατήσει UNO το πρότου ο επόμενος προλάβει να παίξει.</p>
-		<h2>Ειδικές κάρτες:</h2>
-			<p>Μπαλαντερ(W):αλλάζει το χρώμα της κάρτας στο τραπέζι.(RW(Κόκκινο),GW(Πράσινο),BW(Μπλε),YW(Κίτρινο)).</p>
-			<p>Μπαλαντερ πάρε τέσσερα(W+4):αλλάζει το χρώμα της κάρτας στο τραπέζι και ο αντίπαλος παίρνει τέσσερις κάρτες(RW+4(Κόκκινο),GW+4(Πράσινο),BW+4(Μπλε),YW+4(Κίτρινο)).</p>
-			<p>Πάρε δύο(+2):ο αντίπαλος παίρνει δύο κάρτες.</p>
-			<p>Αλλαγής φοράς(R): ξαναπαίζει ο ίδιος παίκτης.</p>
-			<p>Χάνεις την σειρά σου(S):ξαναπαίζει ο ίδιος παίκτης.</p>
-	</div>
+    <div class="col-sm b-1">
+    <h1 class="mt-5">Οδηγίες</h1>
+    <div class="accordion" id="accordionExample">
+     <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
+          Πως να παίξετε
+        </button>
+      </h2>
+    </div>
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+      <p class="mt-0">Ο παίκτης που έχει σειρά πρέπει να εισάγει στο input το χρώμα και το value της κάρτας π.χ. (G9,R8,B0 ή g9,r8,b0).</p>
+      Σε περίπτωση που η κάρτα είναι Μπαλαντέρ θα πρώτα θα βάλει το χρώμα που θέλει να αλλάξει και μετα το value π.χ. (GW+4,RW+4,BW,RW)
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+          Γενικές Κάρτες
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+      <p class="h5 mb-2">Το πρώτο γράμμα δηλώνει το χρώμα της κάρτας.</p>
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Γράμμα</th>
+      <th scope="col">Xρώμα</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Β</th>
+      <td>Μπλε</td>
+    </tr>
+    <tr>
+      <th scope="row">R</th>
+      <td>Κόκκινο</td>
+    </tr>
+    <tr>
+      <th scope="row">G</th>
+      <td>Πράσινο</td>
+    </tr>
+     <tr>
+      <th scope="row">Υ</th>
+      <td>Κίτρινο</td>
+    </tr>
+  </tbody>
+</table>
+  <p class="h5 mb-2">Το δεύτερο γράμμα δηλώνει την τιμή της κάρτας.</p>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Γράμμα</th>
+      <th scope="col">Τιμή</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">0-9</th>
+      <td>0-9</td>
+    </tr>
+    <tr>
+      <th scope="row">R</th>
+      <td>Reverse</td>
+    </tr>
+    <tr>
+      <th scope="row">S</th>
+      <td>Skip</td>
+    </tr>
+     <tr>
+      <th scope="row">+2</th>
+      <td>Draw Two</td>
+    </tr>
+  </tbody>
+</table>
+      </div>
+    </div>
+  </div>
+   <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+         Ειδικές Κάρτες
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+     <p class="font-weight-bold h5">Μπαλαντερ(W):</p><p>Aλλάζει το χρώμα της κάρτας στο τραπέζι.(RW(Κόκκινο),GW(Πράσινο),BW(Μπλε),YW(Κίτρινο)).</p> 
+ <p class="font-weight-bold h5">Μπαλαντερ Πάρε Τέσσερα(W+4):</p><p>Aλλάζει το χρώμα της κάρτας στο τραπέζι και ο αντίπαλος παίρνει τέσσερις κάρτες.(RW+4(Κόκκινο),GW+4(Πράσινο),BW+4(Μπλε),YW+4(Κίτρινο)).</p>
+<p class="font-weight-bold h5">Πάρε δύο(+2):</p><p>O αντίπαλος παίρνει δύο κάρτες.</p>
+<p class="font-weight-bold h5">Αλλαγή φοράς(R):</p><p>Ξαναπαίζει ο ίδιος παίκτης.</p>
+<p class="font-weight-bold h5">Χάνεις την σειρά σου(S):</p><p>Ξαναπαίζει ο ίδιος παίκτης.</p>
+      </div>
+    </div>
+  </div>
+   <div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+          Κανόνες
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+      <div class="card-body">
+      <p>Σκοπός του παιχνιδιού για κάθε παίχτη είναι να ξεφορτωθεί όλες τις κάρτες που έχει στα χέρια του.</p>
+     <p> O παίκτης που έχει σειρά πρέπει να ρίξει μια κάρτα ίδιου αριθμού ή χρώματος με την κάρτα αυτή ή να πετάξει μια ειδική κάρτα.</p>
+      <p>Σε περίπτωση που δεν έχει καμία κάρτα να ταιριάξει με την πάνω κάρτα του σωρού, πρέπει να τραβήξει μια κάρτα από τη στοίβα και αν ούτε τότε δεν έχει να παίξει, πηγαίνει πάσο και έρχεται η σειρά του επόμενου παίχτη να παίξει, ακολουθώντας πάντα το ίδιο μοτίβο επιτρεπτών επιλογών [χρώμα ή αριθμός – ειδική κάρτα – κάρτα από τη στοίβα – πάσο].</p>
+     <p> Όταν κάποιος παίχτης μείνει με 2 κάρτες πρέπει να πατήσει UNO πριν ρίξει τη δεύτερη κάρτα. Αν δεν το κάνει,τιμωρείται και παίρνει 2 κάρτες από την τράπουλα. </p>     
+      </div>
+    </div>
+  </div>
+  
 </div>
    </div>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
