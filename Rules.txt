@@ -1,10 +1,10 @@
-You can only play a card which has the same color or number or symbol with the card in the center. 
-Wild cards (labelled W) are cards that can alter the color during the play.
-Draw Two cards (labelled +2) force the opposing side to draw two cards and forfeit his/her turn. 
-Wild Draw Four cards (labelled +4) are basically a wild card and two Draw Two cards. 
-The opposing side is forced to draw four cards and forfeit his/her turn. 
-The user can alter the color during the play in addition. However, you can only play a Wild Draw Four card if you don't have a card that matches the color of the card in the center. 
-Reverse and Skip cards have the same effect in which you can play another card because your opponent's side is reversed or skipped.
-
-
-Rules extracted from unorules.com
+Οδηγίες παιχνιδιού:
+Σκοπός του παιχνιδιού για κάθε παίχτη είναι να ξεφορτωθεί όλες τις κάρτες που έχει στα χέρια του. Ο πρώτος που θα τα καταφέρει ανακηρύσσεται νικητής για το γύρο αυτό.
+Ο πρώτος στη σειρά παίχτης πρέπει να ρίξει μια κάρτα ίδιου αριθμού ή χρώματος με την κάρτα αυτή ή να πετάξει μια ειδική κάρτα. Σε περίπτωση που δεν έχει καμία κάρτα να ταιριάξει με την πάνω κάρτα του σωρού, πρέπει να τραβήξει μια κάρτα από τη στοίβα και αν ούτε τότε δεν έχει να παίξει, πηγαίνει πάσο και έρχεται η σειρά του επόμενου παίχτη να παίξει, ακολουθώντας πάντα το ίδιο μοτίβο επιτρεπτών επιλογών [χρώμα ή αριθμός – ειδική κάρτα – κάρτα από τη στοίβα – πάσο].
+Όταν κάποιος παίχτης μείνει με μία κάρτα πρέπει να πατήσει UNO το πρότου ο επόμενος προλάβει να παίξει.
+Ειδικές κάρτες:
+Μπαλαντερ(W):αλλάζει το χρώμα της κάρτας στο τραπέζι.(RW(Κόκκινο),GW(Πράσινο),BW(Μπλε),YW(Κίτρινο)).
+Μπαλαντερ πάρε τέσσερα(W+4):αλλάζει το χρώμα της κάρτας στο τραπέζι και ο αντίπαλος παίρνει τέσσερις κάρτες.(RW+4(Κόκκινο),GW+4(Πράσινο),BW+4(Μπλε),YW+4(Κίτρινο)).
+Πάρε δύο(+2):ο αντίπαλος παίρνει δύο κάρτες.
+Αλλαγής φοράς(R): ξαναπαίζει ο ίδιος παίκτης.
+Χάνεις την σειρά σου(S):ξαναπαίζει ο ίδιος παίκτης.
