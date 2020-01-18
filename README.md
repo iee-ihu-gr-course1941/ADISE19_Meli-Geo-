@@ -1,5 +1,7 @@
 # ADISE19_Meli-Geo-
 
+Link εφαρμογής: https://users.iee.ihu.gr/~it154582/ADISE19_Meli-Geo-/
+
 uno-game
 
 This is an implementation in PHP and JS of the classic card game UNO.
